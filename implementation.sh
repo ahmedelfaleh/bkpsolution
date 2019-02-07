@@ -53,6 +53,5 @@ else
 		cpfiles
 fi
 
-sudo chmod -R 700 /orkitools/*
-sudo chown root:root /etc/rsnapshot.conf && sudo chown root:root /etc/cron.d/backup
+sudo chmod -R 700 /orkitools/* && sudo chown root:root /etc/rsnapshot.conf && sudo chown root:root /etc/cron.d/backup
 echo "Backup solution has been implemented successfully"
