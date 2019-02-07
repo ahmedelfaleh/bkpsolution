@@ -3,7 +3,7 @@
 #E-mail: ahmed.elfleh.1@gmail.com
 #Implement all files and scripts for the backup solution.
 apps=( 'rsnapshot rsync' )
-command -V $apps | cut -d ' ' -f1 | tr '\n' ' ' | grep -w "rsnapshot\|rsync" 2> /dev/null
+command -V $apps | cut -d ' ' -f1 | tr '\n' ' ' | grep -w "rsnapshot\|rsync"  &> /dev/null
 
 if [ $? -ne 0 ]
 	then
@@ -40,7 +40,7 @@ read -r "distros" <<< "$info"
 fi
 sudo rm -rf /etc/rsnapshot.conf
 sudo cp -a rsnapshot.conf /etc/
-bash cronimplementaitonscript.sh
+bash cronscript.sh
 cpfiles(){
 	        sudo cp -at /orkitools/ report dbbackup
 }
