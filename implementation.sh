@@ -1,7 +1,7 @@
 #!/bin/bash
 #By ahmed El Faleh
 #E-mail: ahmed.elfleh.1@gmail.com
-#Implement all files and scripts for the backup solution.
+#Automatic implement of  backup solution.
 apps=( 'rsnapshot rsync' )
 command -V $apps | cut -d ' ' -f1 | tr '\n' ' ' | grep -w "rsnapshot\|rsync"  &> /dev/null
 
