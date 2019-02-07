@@ -1,0 +1,11 @@
+#!/usr/bin/bash
+
+# report failed cron jobs by Ibrahim Mohammad
+# Email: ibrahim.dief@horizontechs.com OR ibrahim.mohammad.2015@gmail.com
+# use it like the follwoing cron:
+# 00 03 * * * root rsnapshot daily || report rsnapshot
+
+email=sysadmins@horizontechs.com
+log=/var/log/
+
+mail -s "$HOSTNAME backup failed" $email <<< "For more information check ${log}rsnapshot & ${log}dbbackup & ${log}cron"

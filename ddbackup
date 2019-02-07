@@ -1,0 +1,53 @@
+#!/usr/bin/bash
+
+# MySQL databases backup by Ibrahim Mohammad
+# Email: ibrahim.dief@horizontechs.com OR ibrahim.mohammad.2015@gmail.com
+# use it like the following command:
+# /orkitools/dbbackup &>> /var/log/dbbackup
+
+log()
+{
+    timestamp="[$(date +'%a %b %d %T %Y')]"
+    echo -e "$timestamp $1"
+}
+
+# log the beginning of the backup process before anything
+log "Backup script started"
+
+dbs=$(mysql -e "SHOW DATABASES;" | egrep -v 'Database|information_schema')
+email=sysadmins@horizontechs.com
+
+# backup each database to seperate file
+for db in $dbs; do
+
+    log "$db database backup started"
+    # start database backup process
+    mysqldump --single-transaction $db > $db.sql
+    mysqldump_status=$?
+
+    # if mysqldump faild
+    if [ "$mysqldump_status" != "0" ]; then
+        log "$db database backup failed"
+        exit_code=1
+        # try the next database
+        continue
+    fi
+
+    # compress
+    gzip -f --rsyncable $db.sql
+    # limit database backup file to the owner
+    chmod 0600 $db.sql.gz
+    log "$db database has been backed up successfully to $db.sql.gz"
+
+done
+
+
+# log the end of the backup process and exit
+if [ "$exit_code" == "1" ]; then
+    log "Backup script finished with errors\n"
+    exit $exit_code
+else
+    log "Backup script finished\n"
+    exit 0
+fi
+
