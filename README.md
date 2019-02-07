@@ -67,7 +67,5 @@ Note: only 1 daily no weekly and no monthly backup. remember Rsnabshot will mana
   Check “Retain backups in the default backup directory.”
 Hash cpanel backup cronjob
 ### References:
-CPanel backup configuration
-man rsnapshot
-
-
+– CPanel backup configuration
+– Command: man rsnapshot
