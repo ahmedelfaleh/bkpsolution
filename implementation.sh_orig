@@ -14,7 +14,6 @@ apps=(rsnapshot rsync)
 
 # Check if the apps are existing or not.
 command -V ${apps[*]} | cut -d ' ' -f1 | tr '\n' ' ' | grep -w "rsnapshot\|rsync" &>/dev/null
-#for rr in ${apps[0]} ${apps[1]}; do `cat /bin/$rr` &> /dev/null
 
 # If the apps are not installed the script will ask the user to enter the distribution.
 if [ $? -ne 0 ]
@@ -71,7 +70,7 @@ else
 	echo -e $red"If you distribution is not included please install \"rsnapshot & rsync\" first then re-run this script again"$norm
 		exit 1
 	fi
-fi; #done
+fi
 
 # In case of the apps are already exist or being installed the script will do the following:
 # 1- Remove the original /etc/rsnapshot.conf.
