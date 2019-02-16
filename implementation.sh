@@ -1,7 +1,8 @@
 #!/bin/bash
-# By ahmed El Faleh
+# Author: Ahmed El Faleh.
 # E-mail: ahmed.elfleh.1@gmail.com
 # Automatic implementation of backup solution.
+
 #Set colors
 red="\e[91m"
 norm="\e[0m"
@@ -30,7 +31,7 @@ insterr(){
 if [ $? -ne 0 ]
                 then
                         echo -e $red"Please enter the correct distribution name.
-The package installer of the distribution you have entered is different than the package installer of current installer.
+The package installer of the distribution you have entered is different than the package installer of current distribution.
 You can check your distribution by executing this command $yal\"lsb_release -a | grep \"Distributor ID\" | cut -d\":\" -f2\"$red, then re-enter the correct distribution.
 Or install \"rsnapshot & rsync\" first then re-run this script again $norm"
 
