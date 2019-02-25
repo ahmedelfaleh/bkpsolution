@@ -111,4 +111,6 @@ fi
 
 # End if the script
 sleep 1; echo -e $mag"Backup solution has been implemented successfully"$norm
-echo "Please re-check the /orkitools directory and make that the required files are eixst and check rsnapshot.conf and hash or unhash the cPanel and NoncPanel lines on demand"
+echo "Please re-check the /orkitools directory and make sure that:
+    1. The required files are eixst and check rsnapshot.conf.
+    2. The required lines for the cPanel or NoncPanel are unhashed on demand"
