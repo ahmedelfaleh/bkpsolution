@@ -11,10 +11,10 @@ cy="\e[36m"
 mag="\e[35m"
 
 # The variable of the needed apps to be installed, the apps should installed are rsnapshot and rsync
-apps=(rsnapshot rsync)
+apps=rsnapshot
 
 # Check if the apps are existing or not.
-command -V ${apps[*]} | cut -d ' ' -f1 | tr '\n' ' ' | grep -w "rsnapshot\|rsync" &>/dev/null
+command -V $apps | cut -d ' ' -f1 | tr '\n' ' ' | grep -w "rsnapshot\|rsync" &>/dev/null
 #for rr in ${apps[0]} ${apps[1]}; do `cat /bin/$rr` &> /dev/null
 
 # If the apps are not installed the script will ask the user to enter the distribution.
@@ -43,14 +43,14 @@ install1(){
                 sleep 2
                 echo "Please wait while rsnapshot and rsync are being installed"
 		sleep 2
-                sudo yum install ${apps[*]} -y &> /dev/null
+                sudo yum install $apps -y &> /dev/null
 }
 install2(){
                 echo -e $cy"You have entered $distros"$norm
                 sleep 2
                 echo "Please wait while rsnapshot and rsync are being installed"
                 sleep 2
-                sudo apt-get install ${apps[*]} -y &> /dev/null
+                sudo apt-get install $apps -y &> /dev/null
 }
 
 
