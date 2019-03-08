@@ -43,14 +43,14 @@ install1(){
                 sleep 2
                 echo "Please wait while rsnapshot and rsync are being installed"
 		sleep 2
-                sudo yum install $apps -y &> /dev/null
+                sudo yum install epel-release $apps -y &> /dev/null
 }
 install2(){
                 echo -e $cy"You have entered $distros"$norm
                 sleep 2
                 echo "Please wait while rsnapshot and rsync are being installed"
                 sleep 2
-                sudo apt-get install $apps -y &> /dev/null
+                sudo apt-get install epel-release $apps -y &> /dev/null
 }
 
 
