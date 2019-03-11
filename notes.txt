@@ -1,8 +1,0 @@
-For non cPanel clients:-
-
-1. Databases will be backed up by dbbackup script and the command is included inside the rsnapshot.conf file.
-2. Files will be backed up by rsnapshot.conf itself by the retain option for the periods and the paths are determinded inside the configuration file of rsnapshot
-Like: backup /homedir /backupdir, here the backup will be taken from homedir to backupdir.
-3. The rsnapshot will be run by the cron jobs inside /etc/cron.d/backup
-
-
