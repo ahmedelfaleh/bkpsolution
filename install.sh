@@ -50,8 +50,8 @@ install2(){
                 then
 		install2
 	else
-		echo -e $red"Sorry, The program cannot install rsnapshot and rsyn on your operating system, please reinstall it and run this script again to automate the rest of backup process."$norm
-	
+		echo -e $red"Sorry, The program cannot install rsnapshot and rsyn on your operating system, please reinstall them and re-run the program again to automate the rest of backup process."$norm
+		exit	
 	fi
 fi; #done
 
