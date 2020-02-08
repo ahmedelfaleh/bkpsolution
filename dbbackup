@@ -1,9 +1,8 @@
 #!/usr/bin/bash
 
-# MySQL databases backup by Ibrahim Mohammad
-# Email: ibrahim.dief@horizontechs.com OR ibrahim.mohammad.2015@gmail.com
+# MySQL databases backup
 # use it like the following command:
-# /orkitools/dbbackup &>> /var/log/dbbackup
+# /elfaleh_tools/dbbackup &>> /var/log/dbbackup
 
 log()
 {
@@ -15,7 +14,7 @@ log()
 log "Backup script started"
 
 dbs=$(mysql -e "SHOW DATABASES;" | egrep -v 'Database|information_schema')
-email=sysadmins@horizontechs.com
+email=a.yousry@nileage.com
 
 # backup each database to seperate file
 for db in $dbs; do

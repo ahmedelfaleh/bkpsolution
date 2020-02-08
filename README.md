@@ -34,7 +34,7 @@ Anthoer thing you can notice in this crons the time in which they run. First the
 #### All servers
 I deployed all needed scripts & files already in all servers as follows:
 – /orkitools/dbbackup: mysql dump script.
-– /orkitools/report: report script to report to sysadmins@horizontechs.com when the cronjobs return non zero status code.
+– /orkitools/report: report script to report to a.yousry@nileage.com when the cronjobs return non zero status code.
 – /etc/cron.d/backup: cronjobs file. open it and unhash all cronjobs when you are ready to use this new backup policy.
 – rsnapshot.conf.ht: the unified configuration of rsnapshot. rename it to rsnapshot.conf to replace the old rsanpshot.conf file when you are ready to use this new backup policy.
 run command “rsnapshot configtest” to make sure that rsnapshot will run without errors.

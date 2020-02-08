@@ -258,7 +258,7 @@ backup	/opt/	os/
 backup	/bin/	os/
 backup	/sbin/	os/
 backup	/boot/	os/
-backup	/orkitools/	os/
+backup	/elfaleh_tools/	os/
 backup	/root/	os/
 # CPanel
 #backup	/scripts/	os/
