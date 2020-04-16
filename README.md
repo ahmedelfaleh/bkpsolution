@@ -52,7 +52,7 @@ before it starts.
 Run these commands as a root user:
 `sh install.sh`
 
-#####Note:
+##### Note:
 You will be required to enter you email, please enter a valid one, and leave the script to complete it's process.
 
 After the script finishes the implementation you can start your first backup snapshot, you have to run the daily rsnapshot command as it mentioned above regarding the cron job clarification.
