@@ -10,6 +10,12 @@ yal="\e[93m"
 cy="\e[36m"
 mag="\e[35m"
 
+read -p "Enter the email you would to receive the backup reports on.
+Email Address: " email
+email=$email
+
+sed -i 's/your_email/'$email'/g' *
+
 # The variable of the needed apps to be installed, the apps should installed are rsnapshot and rsync
 apps=rsnapshot
 distros=`cat /etc/os-release | grep -w ID | cut -d= -f2 | sed 's/"//g'`
@@ -56,10 +62,10 @@ install2(){
 fi; #done
 
 # In case of the apps are already exist or being installed the script will do the following:
-# 1- Check if this server is a cPanel enhanced or not.
-# 2- Remove the original /etc/rsnapshot.conf.
-# 3- Copy the modified one according to #1.
-# 4- Create the cronjobs under /etc/cron.d/backup.
+# 1- Check if this server is a cPanel enhanced or not
+# 2- Remove the original /etc/rsnapshot.conf
+# 3- Copy the modified one according to the first point
+# 4- Create the cronjobs under /etc/cron.d/backup
 
 cpchk=$(/usr/local/cpanel/cpanel -V 2>/dev/null)
 rm -f /etc/rsnapshot.conf
@@ -76,21 +82,21 @@ bash cronscript.sh &> /dev/null
 sleep 1
 echo -e "Cron jobs has been created under /etc/cron.d/backup"$norm
 
-# This function will be used after creating /orkitools/ directory.
+# This function will be used after creating /elfalehtools/ directory.
 cpfiles(){
-	         cp -at /orkitools/ report dbbackup
-		 chmod -R 700 /orkitools/*
+	         cp -at /elfalehtools/ report dbbackup
+		 chmod -R 700 /elfalehtools/*
 		 chown root:root /etc/rsnapshot.conf
 		 chown root:root /etc/cron.d/backup
 
 }
 
-# Check if the /orkitools/ directory is exit or not, if not, it will be created.
-if [ ! -d "/orkitools" ]
+# Check if the /elfalehtools/ directory is exit or not, if not, it will be created.
+if [ ! -d "/elfalehtools" ]
 	then
-		echo "/orkitools/ directory doesn't exist"; sleep 1
-		mkdir /orkitools; sleep 1
-		echo -e $cy"/orkitools/ directory has been created"
+		echo "/elfalehtools/ directory doesn't exist"; sleep 1
+		mkdir /elfalehtools; sleep 1
+		echo -e $cy"/elfalehtools/ directory has been created"
 		cpfiles; sleep 1
 		echo -e "The required files have been copied successfully"$norm
 else
@@ -101,6 +107,6 @@ fi
 
 # End if the script
 sleep 1; echo -e $mag"Backup solution has been implemented successfully"$norm
-echo "Please re-check the /orkitools directory and rsnapshot.conf file and make sure that:
-    1. The required files are exist in /orkitools.
+echo "Please re-check the /elfalehtools directory and rsnapshot.conf file and make sure that:
+    1. The required files are exist in /elfalehtools.
     2. The required lines for the cPanel or NoncPanel are unhashed on demand in rsnapshot.conf"

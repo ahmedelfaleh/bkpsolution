@@ -2,7 +2,7 @@
 
 # MySQL databases backup
 # use it like the following command:
-# /elfaleh_tools/dbbackup &>> /var/log/dbbackup
+# /elfalehtools/dbbackup &>> /var/log/dbbackup
 
 log()
 {
@@ -14,7 +14,7 @@ log()
 log "Backup script started"
 
 dbs=$(mysql -e "SHOW DATABASES;" | egrep -v 'Database|information_schema')
-email=a.yousry@nileage.com
+email=your_email
 
 # backup each database to seperate file
 for db in $dbs; do

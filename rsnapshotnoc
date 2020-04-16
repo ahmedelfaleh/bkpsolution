@@ -258,7 +258,7 @@ backup	/opt/	os/
 backup	/bin/	os/
 backup	/sbin/	os/
 backup	/boot/	os/
-backup	/elfaleh_tools/	os/
+backup	/elfalehtools/	os/
 backup	/root/	os/
 # CPanel
 #backup	/scripts/	os/
@@ -281,4 +281,4 @@ exclude	/usr/tmp
 # CPanel
 #backup_exec	/usr/local/cpanel/bin/backup	required
 # Non CPanel
-backup_script	/orkitools/dbbackup &>> /var/log/dbbackup	dbbackup/
+backup_script	/elfalehtools/dbbackup &>> /var/log/dbbackup	dbbackup/
