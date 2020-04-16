@@ -16,12 +16,19 @@ You will find the inside /backup directory on the server mysqldump backup, os ba
 8. The New MySQL Dump script (dbbackup) Benefits Secure databases dump with 0600 permissions.
 9. It also gives and additional beneifts:
         *  Detailed Log file under /var/log/dbbackup for easier audit of the failed backups.
+        *  
         *  Smaller mysql dump files.
+        *  
         *  Faster backup and restore.
+        *  
         *  Even the cron jobs that runs the backup got an update here is it:
+        *  
 			- 00 01 1 * * root rsnapshot monthly || /elfalehtools/report
+			- 
 			- 30 01 */7 * * root rsnapshot weekly || /elfalehtools/report
+			- 
 			- 00 2 * * * root rsnapshot daily || /elfalehtools/report
+			- 
 #### C. How It Works, And What Its Intervals
 Daily backup runs every day at 2 AM. weekly backup runs every 7 days
 at 1:30 AM so it is now more accurate and predictable than running it
@@ -33,6 +40,7 @@ month which takes the oldest daily backup at that time which will be
 monthly backup of the 19th day of the previous month.
 Another thing, you can notice in the above crons the time in which they
 run.
+
 First the highest level backup (monthly) at 1:00 AM then the lowest
 (weekly) at 1:30 AM then the lowest (daily) at 2:00 AM.
 Page 5 of 8This order is important for fast, correct and predictable backups
