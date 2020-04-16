@@ -13,11 +13,12 @@ from within Rsnapshot.
 6. Clean and unified backup directories under /backup, you will find everything you need under daily.0, daily.1, daily.2, weekly.0, weekly.1 and monthly.0, for example:
 You will find the inside /backup directory on the server mysqldump backup, os backup & home backup - all backup inside one directory.
 7. Best backup retention, at any time the client asks for a backup version from the previous week or month he will find it.
-	a) The New MySQL Dump script (dbbackup) Benefits Secure databases dump with 0600 permissions.
-		1. Detailed Log file under /var/log/dbbackup for easier audit of the failed backups.
-		2. Smaller mysql dump files.
-		3. Faster backup and restore.
-		4. Even the cron jobs that runs the backup got an update here is it:
+8. The New MySQL Dump script (dbbackup) Benefits Secure databases dump with 0600 permissions.
+9. It also gives and additional beneifts:
+        *  Detailed Log file under /var/log/dbbackup for easier audit of the failed backups.
+        *  Smaller mysql dump files.
+        *  Faster backup and restore.
+        *  Even the cron jobs that runs the backup got an update here is it:
 			- 00 01 1 * * root rsnapshot monthly || /elfalehtools/report
 			- 30 01 */7 * * root rsnapshot weekly || /elfalehtools/report
 			- 00 2 * * * root rsnapshot daily || /elfalehtools/report
@@ -32,7 +33,6 @@ month which takes the oldest daily backup at that time which will be
 monthly backup of the 19th day of the previous month.
 Another thing, you can notice in the above crons the time in which they
 run.
-
 First the highest level backup (monthly) at 1:00 AM then the lowest
 (weekly) at 1:30 AM then the lowest (daily) at 2:00 AM.
 Page 5 of 8This order is important for fast, correct and predictable backups
