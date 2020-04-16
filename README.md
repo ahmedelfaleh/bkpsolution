@@ -43,3 +43,7 @@ rsnapshot will not make a monthly backup for this month because by
 default only one rsnapshot process can run at the same time. Also it will
 be slower because it will have to delete the oldest daily backup daily.2
 before it starts.
+#### D. Implementation Steps
+Run these commands as a root user:
+`sh install.sh`
+You will be required to enter you email, please enter a valid one, and leave the script to complete it's process.
