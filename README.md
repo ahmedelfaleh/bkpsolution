@@ -27,28 +27,20 @@ You will find inside /backup directory on the server mysqldump backup, os backup
 
 
 #### C. How It Works, And What Its Intervals
-Daily backup runs every day at 2 AM. weekly backup runs every 7 days
-at 1:30 AM so it is now more accurate and predictable than running it
-every Sunday for example, now it will run on 1st, 8th ,15th ,22nd and 29th
-day of every month. monthly backup runs every 1st day of every month
-taking the weekly backup weekly.1 which runs on the 22nd day of the
-month which takes the oldest daily backup at that time which will be
-19th day of every month so at any day of the current month we will have
-monthly backup of the 19th day of the previous month.
-Another thing.
+Daily backup runs every day at 2 AM.
 
-You can notice in the above crons the time in which they
-run.
-First the highest level backup (monthly) at 1:00 AM then the lowest
-(weekly) at 1:30 AM then the lowest (daily) at 2:00 AM.
-Page 5 of 8This order is important for fast, correct and predictable backups
-because for example if the daily starts first at 1:00 AM it will be hard to
-know when it will finish because it makes the actual backup with rsync
-even worse if the daily not finish when the monthly begin then
-rsnapshot will not make a monthly backup for this month because by
-default only one rsnapshot process can run at the same time. Also it will
-be slower because it will have to delete the oldest daily backup daily.2
-before it starts.
+Weekly backup runs every 7 days at 1:30 AM, so it is now more accurate and predictable than running it every Sunday for example, now it will run on 1st, 8th ,15th ,22nd and 29th day of every month.
+
+Monthly backup runs every 1st day of every month taking the weekly backup weekly.1 which runs on the 22nd day of the month which takes the oldest daily backup at that time which will be 19th day of every month so at any day of the current month we will have monthly backup of the 19th day of the previous month.
+
+Another thing, You can notice in the above crons the time in which they run.
+
+First the highest level backup (monthly) at 1:00 AM then the lowest (weekly) at 1:30 AM then the lowest (daily) at 2:00 AM.
+
+This order is important for fast, correct and predictable backups because for example if the daily starts first at 1:00 AM it will be hard to know when it will finish because it makes the actual backup with rsync even worse if the daily not finish when the monthly begin then rsnapshot will not make a monthly backup for this month because by default only one rsnapshot process can run at the same time.
+
+Also it will be slower because it will have to delete the oldest daily backup daily.2 before it starts.
+
 #### D. Implementation Steps
 Run these commands as a root user:
 `sh install.sh`
