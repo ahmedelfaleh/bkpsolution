@@ -19,6 +19,7 @@ You will find inside /backup directory on the server mysqldump backup, os backup
     *  Detailed Log file under /var/log/dbbackup for easier audit of the failed backups.
     *  Smaller mysql dump files.
     *  Faster backup and restore.
+
 9. The cron jobs that runs the backup is very easy to be reviewed and understood:
     *  00 01 1 * * root rsnapshot monthly || /elfalehtools/report
     *  30 01 */7 * * root rsnapshot weekly || /elfalehtools/report
