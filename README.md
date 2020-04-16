@@ -5,6 +5,7 @@ I make Rsnapshot service the main player where Rsnabshot controls
 everything from dumping mysql to backing up all accounts and all run
 from within Rsnapshot.
 #### B. The Benefits
+
 1. Prevent starting mysqldump & os backup at the same time, or starting data backup while os backup is not finished yet.
 2. Now all backup procedures run in sequence, preventing interfering or long wait times between backup cron jobs.
 3. Backup starts and ends in the lowest time possible.
@@ -16,19 +17,19 @@ You will find the inside /backup directory on the server mysqldump backup, os ba
 8. The New MySQL Dump script (dbbackup) Benefits Secure databases dump with 0600 permissions.
 9. It also gives and additional beneifts:
         *  Detailed Log file under /var/log/dbbackup for easier audit of the failed backups.
-        *  
+  
         *  Smaller mysql dump files.
-        *  
+  
         *  Faster backup and restore.
-        *  
+  
         *  Even the cron jobs that runs the backup got an update here is it:
-        *  
+  
 			- 00 01 1 * * root rsnapshot monthly || /elfalehtools/report
-			- 
+ 
 			- 30 01 */7 * * root rsnapshot weekly || /elfalehtools/report
-			- 
+ 
 			- 00 2 * * * root rsnapshot daily || /elfalehtools/report
-			- 
+ 
 #### C. How It Works, And What Its Intervals
 Daily backup runs every day at 2 AM. weekly backup runs every 7 days
 at 1:30 AM so it is now more accurate and predictable than running it
