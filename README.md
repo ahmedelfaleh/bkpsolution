@@ -35,9 +35,10 @@ taking the weekly backup weekly.1 which runs on the 22nd day of the
 month which takes the oldest daily backup at that time which will be
 19th day of every month so at any day of the current month we will have
 monthly backup of the 19th day of the previous month.
-Another thing, you can notice in the above crons the time in which they
-run.
+Another thing.
 
+You can notice in the above crons the time in which they
+run.
 First the highest level backup (monthly) at 1:00 AM then the lowest
 (weekly) at 1:30 AM then the lowest (daily) at 2:00 AM.
 Page 5 of 8This order is important for fast, correct and predictable backups
