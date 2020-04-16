@@ -61,6 +61,6 @@ And then you can view the log while it's running
 
 `tail -f /var/log/rsnapshot`
 
-#####This is a simulation of what will happen at the midnight while you are sleeping.
+##### This is a simulation of what will happen at the midnight while you are sleeping.
 
 Enjoy!!
