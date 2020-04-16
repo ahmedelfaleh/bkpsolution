@@ -9,18 +9,20 @@ Rsnapshot service is the main player in thi backup script, where Rsnabshot contr
 3. Backup starts and ends in the lowest time possible.
 4. Easier calculation of the space used by backup with one single command “rsnapshot du”.
 5. Making audits easier.
-6. Clean and unified backup directories under /backup, you will find everything you need under daily.0, daily.1, daily.2, weekly.0, weekly.1 and monthly.0, for example:
-You will find the inside /backup directory on the server mysqldump backup, os backup & home backup - all backup inside one directory.
-7. Best backup retention, at any time the client asks for a backup version from the previous week or month he will find it.
-8. The New MySQL Dump script (dbbackup) Benefits Secure databases dump with 0600 permissions.
-9. It also gives and additional beneifts:
+6. Clean and unified backup directories under /backup, you will find everything you need under daily.0, daily.1, daily.2, weekly.0, weekly.1 and monthly.0.
+
+For example:
+You will find inside /backup directory on the server mysqldump backup, os backup & home backup - all backup inside one directory.
+Best backup retention, at any time the client asks for a backup version from the previous week or month he will find it.
+7. The New MySQL Dump script (dbbackup) Benefits:
+    *  Secure databases dump with 0600 permissions.
     *  Detailed Log file under /var/log/dbbackup for easier audit of the failed backups.
     *  Smaller mysql dump files.
     *  Faster backup and restore.
     *  Even the cron jobs that runs the backup got an update here is it:
-		- 00 01 1 * * root rsnapshot monthly || /elfalehtools/report
-		- 30 01 */7 * * root rsnapshot weekly || /elfalehtools/report
-		- 00 2 * * * root rsnapshot daily || /elfalehtools/report
+    	- 00 01 1 * * root rsnapshot monthly || /elfalehtools/report
+    	- 30 01 */7 * * root rsnapshot weekly || /elfalehtools/report
+    	- 00 2 * * * root rsnapshot daily || /elfalehtools/report
 
 #### C. How It Works, And What Its Intervals
 Daily backup runs every day at 2 AM. weekly backup runs every 7 days
