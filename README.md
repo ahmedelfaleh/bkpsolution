@@ -10,12 +10,11 @@ Rsnapshot service is the main player in thi backup script, where Rsnabshot contr
 4. Easier calculation of the space used by backup with one single command “rsnapshot du”.
 5. Making audits easier.
 6. Clean and unified backup directories under /backup, you will find everything you need under daily.0, daily.1, daily.2, weekly.0, weekly.1 and monthly.0.
-
 For example:
 You will find inside /backup directory on the server mysqldump backup, os backup & home backup - all backup inside one directory.
-Best backup retention, at any time the client asks for a backup version from the previous week or month he will find it.
 
-7. The New MySQL Dump script (dbbackup) Benefits:
+7. Best backup retention, at any time the client asks for a backup version from the previous week or month it surely will be found.
+8. The New MySQL Dump script (dbbackup) Benefits:
     *  Secure databases dump with 0600 permissions.
     *  Detailed Log file under /var/log/dbbackup for easier audit of the failed backups.
     *  Smaller mysql dump files.
