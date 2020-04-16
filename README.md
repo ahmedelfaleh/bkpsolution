@@ -16,6 +16,7 @@ You will find the inside /backup directory on the server mysqldump backup, os ba
 7. Best backup retention, at any time the client asks for a backup version from the previous week or month he will find it.
 8. The New MySQL Dump script (dbbackup) Benefits Secure databases dump with 0600 permissions.
 9. It also gives and additional beneifts:
+
         *  Detailed Log file under /var/log/dbbackup for easier audit of the failed backups.
   
         *  Smaller mysql dump files.
