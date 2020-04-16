@@ -52,9 +52,15 @@ before it starts.
 Run these commands as a root user:
 `sh install.sh`
 You will be required to enter you email, please enter a valid one, and leave the script to complete it's process.
+
 After the script finishes the implementation you can start your first backup snapshot, you have to run the daily rsnapshot command as it mentioned above regarding the cron job clarification.
+
 `rsnapshot daily || /elfalehtools/report`
+
 And then you can view the log while it's running
+
 `tail -f /var/log/rsnapshot`
-This is a simulation of what will happen at the midnight while you are sleeping.
+
+#####This is a simulation of what will happen at the midnight while you are sleeping.
+
 Enjoy!!
